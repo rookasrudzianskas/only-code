@@ -6,7 +6,7 @@ const UserCard = ({user}) => {
   const router = useRouter();
 
   return (
-    <Link href={`/user${user.id}`} asChild>
+    <Link href={`/user/${user.id}`} asChild>
       <TouchableOpacity
         activeOpacity={0.7} className="rounded-lg my-2">
         <ImageBackground
