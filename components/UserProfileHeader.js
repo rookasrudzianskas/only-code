@@ -4,9 +4,8 @@ import {Text, View, StyleSheet, ImageBackground, TouchableOpacity, Image} from '
 import {AntDesign, EvilIcons, Feather, Ionicons} from "@expo/vector-icons";
 import {Link, useRouter} from "expo-router";
 
-const UserProfileHeader = ({user}) => {
+const UserProfileHeader = ({user, isSubscribed, setIsSubscribed}) => {
   const router = useRouter();
-  const [isSubscribed, setIsSubscribed] = useState(false);
 
   return (
     <>
