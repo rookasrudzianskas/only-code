@@ -29,7 +29,6 @@ const NewPost = () => {
 
   }
 
-
   return (
     <View className="pt-16 mx-5">
       <View className="flex flex-row items-center justify-between border-b border-gray-200 pb-3">
