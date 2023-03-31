@@ -82,7 +82,7 @@ const ProfilePage = () => {
               <Text className="text-blue-400 font-bold">SUBSCRIBED</Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={0.7}>
-              <Text className="text-blue-400 font-bold">FOR FREE</Text>
+              <Text className="text-blue-400 font-bold">{user.subscriptionPrice === 0 ? 'FOR FREE' : `$${user.subscriptionPrice} / month`}</Text>
             </TouchableOpacity>
           </View>
         </View>
