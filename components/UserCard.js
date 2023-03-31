@@ -1,9 +1,9 @@
 import React from 'react';
-import {Image, ImageBackground, Text, View} from "react-native";
+import {Image, ImageBackground, Text, TouchableOpacity, View} from "react-native";
 
 const UserCard = ({user}) => {
   return (
-    <View className="rounded-lg my-4">
+    <TouchableOpacity activeOpacity={0.7} className="rounded-lg my-4">
       <ImageBackground
         src={user.coverImage}
         style={{ borderRadius: 10 }}
@@ -22,7 +22,7 @@ const UserCard = ({user}) => {
           <Text className="text-xl ml-4 text-white">@{user.handle}</Text>
         </View>
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 };
 
