@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React from 'react';
-import {Text, View, Image, ImageBackground} from 'react-native';
+import {Text, View, Image, ImageBackground, FlatList} from 'react-native';
 import users from '../assets/data/users'
 import UserCard from "../components/UserCard";
 
@@ -9,8 +9,13 @@ const Page = () => {
 
   return (
     <View className="pt-16 mx-5">
-      <UserCard user={user} />
-      <UserCard user={user} />
+      <FlatList
+        contentContainerStyle={{paddingBottom: 100}}
+        data={users}
+        renderItem={({item}) => <UserCard user={item} />}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
 
   );

@@ -81,9 +81,9 @@ export default [
     coverImage:
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/7.jpeg',
     avatar:
-      'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim1.JPG',
-    name: 'Vadim',
-    handle: 'vadim2',
+      'https://pbs.twimg.com/profile_images/1595750905537871873/DMcn47S6_400x400.jpg',
+    name: 'Rokas',
+    handle: 'rokas',
     bio: 'hello',
     subscriptionPrice: 0,
   },
