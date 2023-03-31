@@ -12,11 +12,12 @@ const NewPost = () => {
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
+
 
     console.log(result);
 
@@ -38,14 +39,14 @@ const NewPost = () => {
               <EvilIcons name="arrow-left" size={30} color="black" />
             </TouchableOpacity>
           </Link>
-          <Text className="uppercase text-semibold text-lg ml-1">NEW POST</Text>
+          <Text className="uppercase font-semibold text-base ml-1">NEW POST</Text>
         </View>
         <TouchableOpacity onClick={handlePost} className="bg-blue-400 px-6 py-1 flex items-center justify-center rounded-full">
           <Text className="uppercase font-semibold text-base ml-1 text-white">POST</Text>
         </TouchableOpacity>
       </View>
       <View className="border-b border-gray-200 pt-3">
-        <TextInput placeholder={'Compose a new text'} value={text} onChangeText={setText} numberOfLines={3} mutiline={true} />
+        <TextInput placeholder={'Compose a new text'} value={text} onChangeText={setText} numberOfLines={3} multiline />
         <View className="mt-7 pb-3">
           <TouchableOpacity onPress={() => pickImage()} activeOpacity={0.7}>
             <Feather name="image" size={24} color="gray" />
