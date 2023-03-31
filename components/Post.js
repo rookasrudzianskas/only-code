@@ -6,13 +6,13 @@ import {EvilIcons, Feather, Ionicons, MaterialIcons} from "@expo/vector-icons";
 const Post = ({post}) => {
   return (
     <View className="my-3">
-      <View className="flex mx-5  flex-row items-center  justify-between my-4 mb-2">
+      <View className="flex mx-5 flex-row items-center  justify-between my-4 mb-2">
         <View className="flex flex-row items-center">
           <Image src={post.User.avatar} style={{ width: 40, height: 40, borderRadius: 25,}} />
 
           <View className="flex flex-col pr-4">
             <View className="flex flex-row items-center">
-              <Text className="text-black text-lg font-semibold mr-2 pl-2">{post.User.name}</Text>
+              <Text className="text-black text-lg font-semibold mr-2 pl-3">{post.User.name}</Text>
               <Ionicons name="checkmark-circle-sharp" className="mt-4" size={14} color="black" />
             </View>
             <View className="flex flex-row pl-2">
@@ -30,10 +30,12 @@ const Post = ({post}) => {
       <View className="mb-3 mx-5 ">
         <Text className="">{post.text}</Text>
       </View>
-      <Image src={post.image} style={{ width: '100%', aspectRatio: 1,}} />
+      <View className="mx-2">
+        <Image src={post.image} style={{ width: '100%', aspectRatio: 1,}} />
+      </View>
       <View className="mt-3 mx-5 ">
         <TouchableOpacity>
-          <Feather name="heart" size={24} color="black" />
+          <Feather name="heart" size={20} color="black" />
         </TouchableOpacity>
         <Text className="font-semibold mt-3">10 Likes</Text>
       </View>
