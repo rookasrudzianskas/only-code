@@ -11,7 +11,6 @@ const UserCard = ({user}) => {
         activeOpacity={0.7} className="rounded-lg my-2">
         <ImageBackground
           src={user.coverImage}
-          style={{ borderRadius: 10 }}
           borderRadius={10}
           opacity={0.9}
           className="w-full h-36 rounded-lg flex flex-row items-center"
@@ -19,7 +18,8 @@ const UserCard = ({user}) => {
           <View>
             <Image
               src={user.avatar}
-              className="w-28 h-28 ml-4 rounded-full border-4 border-white"
+              className="w-28 h-28 ml-4 rounded-full border-4"
+              style={{borderColor: 'white'}}
             />
           </View>
           <View className="mt-12">
