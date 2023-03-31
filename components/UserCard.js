@@ -3,7 +3,7 @@ import {Image, ImageBackground, Text, TouchableOpacity, View} from "react-native
 
 const UserCard = ({user}) => {
   return (
-    <TouchableOpacity activeOpacity={0.7} className="rounded-lg my-4">
+    <TouchableOpacity activeOpacity={0.7} className="rounded-lg my-2">
       <ImageBackground
         src={user.coverImage}
         style={{ borderRadius: 10 }}
