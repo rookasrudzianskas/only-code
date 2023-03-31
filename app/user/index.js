@@ -2,9 +2,9 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
-const UserScreen = () => {
+const ProfilePage = () => {
   return (
-    <View>
+    <View className="pt-16">
       <Text>
         byrookas 🚀
       </Text>
@@ -12,4 +12,4 @@ const UserScreen = () => {
   );
 };
 
-export default UserScreen;
+export default ProfilePage;
