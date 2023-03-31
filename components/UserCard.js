@@ -17,7 +17,7 @@ const UserCard = ({user}) => {
             className="w-28 h-28 ml-4 rounded-full border-4 border-white"
           />
         </View>
-        <View className="mt-16">
+        <View className="mt-12">
           <Text className="text-2xl font-bold ml-4 text-white">{user.name}</Text>
           <Text className="text-xl ml-4 text-white">@{user.handle}</Text>
         </View>
