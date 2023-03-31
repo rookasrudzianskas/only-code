@@ -63,6 +63,30 @@ const ProfilePage = () => {
           </TouchableOpacity>
         </View>
       </View>
+
+      <View className="mx-5 mt-3">
+        <View className="flex flex-row items-center">
+          <Text className="text-xl font-semibold mr-1">{user.name}</Text>
+          <Ionicons name="checkmark-circle-sharp" className="pt-4 ml-3" size={14} color="black" />
+        </View>
+        <Text className="text-gray-500">@{user.handle}</Text>
+
+        <Text className="mt-4 text-sm">
+          {user.bio }
+        </Text>
+
+        <View className="mt-7">
+          <Text className="font-semibold text-gray-400">SUBSCRIPTION</Text>
+          <View className="flex flex-row w-full justify-between items-center mt-4 border border-gray-200 py-4 px-5 rounded-full">
+            <TouchableOpacity activeOpacity={0.7}>
+              <Text className="text-blue-400 font-bold">SUBSCRIBED</Text>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.7}>
+              <Text className="text-blue-400 font-bold">FOR FREE</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
     </View>
   );
 };

@@ -7,7 +7,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png',
     name: 'Elon',
     handle: 'elon',
-    bio: 'hello',
+    bio: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
     subscriptionPrice: 0,
   },
   {
