@@ -1,9 +1,11 @@
 //@ts-nocheck
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, ImageBackground, Image} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, ImageBackground, Image, FlatList} from 'react-native';
 import {Link, useRouter, useSearchParams} from "expo-router";
 import users from '../../assets/data/users';
 import UserProfileHeader from "../../components/UserProfileHeader";
+import posts from '../../assets/data/posts';
+import Post from "../../components/Post";
 
 const ProfilePage = () => {
   const {id} = useSearchParams();
@@ -13,7 +15,17 @@ const ProfilePage = () => {
 
   return (
     <View className="">
-      <UserProfileHeader user={user} setIsSubscribed={setIsSubscribed} isSubscribed={isSubscribed} />
+      <FlatList
+        ListHeaderComponent={() => (
+          <UserProfileHeader user={user} setIsSubscribed={setIsSubscribed} isSubscribed={isSubscribed} />
+        )}
+        data={posts}
+        renderItem={({item}) => (
+          <Post post={item} />
+        )}
+        keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };
