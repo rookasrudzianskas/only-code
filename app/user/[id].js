@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, StyleSheet, TouchableOpacity, ImageBackground, Image} from 'react-native';
 import {AntDesign, EvilIcons, Feather, Ionicons} from "@expo/vector-icons";
 import {Link, useRouter, useSearchParams} from "expo-router";
@@ -9,6 +9,8 @@ const ProfilePage = () => {
   const router = useRouter();
   const {id} = useSearchParams();
   const user = users.find((user) => user.id === id);
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
   return (
     <View className="">
       <ImageBackground className="h-56 w-full" style={{}} src={user.coverImage}>
@@ -78,8 +80,8 @@ const ProfilePage = () => {
         <View className="mt-7">
           <Text className="font-semibold text-gray-400">SUBSCRIPTION</Text>
           <View className="flex flex-row w-full justify-between items-center mt-4 border border-gray-200 py-4 px-5 rounded-full">
-            <TouchableOpacity activeOpacity={0.7}>
-              <Text className="text-blue-400 font-bold">SUBSCRIBED</Text>
+            <TouchableOpacity onClick={() => setIsSubscribed(!isSubscribed)} activeOpacity={0.7}>
+              <Text className={`${isSubscribed ? 'text-blue-400' : 'text-green-400'} font-bold `}>{isSubscribed ? 'SUBSCRIBED' : 'SUBSCRIBE'}</Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={0.7}>
               <Text className="text-blue-400 font-bold">{user.subscriptionPrice === 0 ? 'FOR FREE' : `$${user.subscriptionPrice} / month`}</Text>
