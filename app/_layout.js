@@ -3,7 +3,12 @@ import React from 'react'
 import {Stack} from "expo-router";
 import awsconfig from '../src/aws-exports';
 
-Amplify.configure(awsconfig);
+Amplify.configure({
+  ...awsconfig,
+  Analytics: {
+    disabled: true,
+  }
+});
 
 
 export default function RootLayout() {

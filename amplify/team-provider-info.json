@@ -10,6 +10,11 @@
       "StackName": "amplify-onlycode-staging-160816",
       "StackId": "arn:aws:cloudformation:us-east-1:605111547475:stack/amplify-onlycode-staging-160816/67d8b190-d55e-11ed-87eb-0e323b025413",
       "AmplifyAppId": "d1oiers7f7dzr3"
+    },
+    "categories": {
+      "auth": {
+        "OnlyCode": {}
+      }
     }
   }
 }
