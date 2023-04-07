@@ -11,7 +11,6 @@ Amplify.configure({
   }
 });
 
-
 export default function RootLayout() {
   return (
     <Authenticator.Provider>
