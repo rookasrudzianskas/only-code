@@ -1,15 +1,28 @@
 //@ts-nocheck
-import React from 'react';
-import {Text, View, Image, ImageBackground, FlatList, TouchableOpacity} from 'react-native';
-import users from '../assets/data/users'
+import React, {useEffect, useState} from 'react';
+import {Text, View, FlatList, TouchableOpacity, ActivityIndicator} from 'react-native';
 import UserCard from "../components/UserCard";
 import {Link} from "expo-router";
 import {AntDesign} from "@expo/vector-icons";
 import {useAuthenticator} from "@aws-amplify/ui-react-native";
+import {DataStore} from "aws-amplify";
+import {User} from "../src/models";
 
 const Page = () => {
-  const user = users[0];
   const {signOut} = useAuthenticator()
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    DataStore.query(User).then(setUsers);
+  }, [])
+
+  if(!users) {
+    return (
+      <View className="flex h-screen items-center justify-center">
+        <ActivityIndicator />
+      </View>
+    )
+  }
 
   return (
     <View className="pt-16 mx-5">
