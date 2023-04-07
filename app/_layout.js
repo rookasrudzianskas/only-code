@@ -2,6 +2,7 @@ import { Amplify } from 'aws-amplify';
 import React from 'react'
 import {Stack} from "expo-router";
 import awsconfig from '../src/aws-exports';
+import {Authenticator} from "@aws-amplify/ui-react-native";
 
 Amplify.configure({
   ...awsconfig,
@@ -13,6 +14,10 @@ Amplify.configure({
 
 export default function RootLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false }} />
+    <Authenticator.Provider>
+      <Authenticator>
+        <Stack screenOptions={{ headerShown: false }} />
+      </Authenticator>
+    </Authenticator.Provider>
   )
 }
