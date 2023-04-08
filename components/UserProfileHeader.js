@@ -70,7 +70,7 @@ const UserProfileHeader = ({user, isSubscribed, setIsSubscribed}) => {
         <Text className="text-gray-500">@{user.handle}</Text>
 
         <Text className="mt-4 text-sm">
-          {user.bio }
+          {user.bio.slice(0, 300)}{'...'}
         </Text>
 
         <View className="mt-7">
