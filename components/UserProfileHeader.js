@@ -69,8 +69,8 @@ const UserProfileHeader = ({user, isSubscribed, setIsSubscribed}) => {
         </View>
         <Text className="text-gray-500">@{user.handle}</Text>
 
-        <Text className="mt-4 text-sm">
-          {user.bio.slice(0, 300)}{'...'}
+        <Text numberOfLines={6} className="mt-4 text-sm">
+          {user.bio}{'...'}
         </Text>
 
         <View className="mt-7 z-999">
@@ -80,7 +80,7 @@ const UserProfileHeader = ({user, isSubscribed, setIsSubscribed}) => {
               <Text className={`${isSubscribed ? 'text-blue-400' : 'text-white'} font-bold `}>{isSubscribed ? 'SUBSCRIBED' : 'SUBSCRIBE'}</Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={0.7}>
-              <Text className={`${isSubscribed ? 'text-blue-400' : 'text-white'} font-bold`}>{user.subscriptionPrice === 0 ? 'FOR FREE' : `$${user.subscriptionPrice.toFixed(1)} / month`}</Text>
+              <Text className={`${isSubscribed ? 'text-blue-400' : 'text-white'} font-bold`}>{user.subscriptionPrice === 0 ? 'FOR FREE' : `$${user.subscriptionPrice?.toFixed(1)} / month`}</Text>
             </TouchableOpacity>
           </View>
         </View>

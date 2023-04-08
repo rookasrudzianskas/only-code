@@ -12,7 +12,7 @@ import {User} from "../../src/models";
 const ProfilePage = () => {
   const {id} = useSearchParams();
   const [user, setUser] = useState([])
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(true);
 
   useEffect(() => {
     DataStore.query(User, id).then(setUser);
