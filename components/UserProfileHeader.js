@@ -73,7 +73,7 @@ const UserProfileHeader = ({user, isSubscribed, setIsSubscribed}) => {
           {user.bio.slice(0, 300)}{'...'}
         </Text>
 
-        <View className="mt-7">
+        <View className="mt-7 z-999">
           <Text className="font-semibold text-gray-400">SUBSCRIPTION</Text>
           <View className={`flex flex-row w-full justify-between items-center mt-4 py-4 px-5 rounded-full ${isSubscribed ? 'bg-white  border border-gray-200' : 'bg-blue-400'}`}>
             <TouchableOpacity onClick={() => setIsSubscribed(!isSubscribed)} activeOpacity={0.7}>
