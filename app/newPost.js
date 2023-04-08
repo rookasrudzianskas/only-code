@@ -4,10 +4,9 @@ import {Text, View, StyleSheet, TouchableOpacity, TextInput, Image} from 'react-
 import {Link} from "expo-router";
 import {EvilIcons, Feather} from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
-import {DataStore} from "aws-amplify";
+import {DataStore, Storage} from "aws-amplify";
 import {useAuthenticator} from "@aws-amplify/ui-react-native";
 import {User, Post as PostModel} from "../src/models";
-import { Storage } from "@aws-amplify/storage"
 import uuid from 'react-native-uuid';
 
 const NewPost = () => {

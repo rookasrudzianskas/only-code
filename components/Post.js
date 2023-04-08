@@ -2,15 +2,20 @@ import React, {useEffect, useState} from 'react';
 import {View, Image, TouchableOpacity, Text} from "react-native";
 import {Link} from "expo-router";
 import {EvilIcons, Feather, Ionicons, MaterialIcons} from "@expo/vector-icons";
-import {DataStore} from "aws-amplify";
+import {DataStore, Storage} from "aws-amplify";
 import {User} from "../src/models";
 
 const Post = ({ post}) => {
   const [user, setUser] = useState();
+  const [imageUri, setImageUri] = useState()
 
   useEffect(() => {
     DataStore.query(User, post.userID).then(setUser);
   }, [])
+
+  useEffect(() => {
+    Storage.get(post.image).then(setImageUri)
+  }, [post.image])
 
   return (
     <View className="my-3">
@@ -38,9 +43,9 @@ const Post = ({ post}) => {
       <View className="mb-3 mx-5 ">
         <Text className="">{post?.text}</Text>
       </View>
-      {post.image && (
+      {imageUri && (
         <View className="mx-2">
-          <Image src={user?.image} style={{ width: '100%', aspectRatio: 1,}} />
+          <Image src={imageUri} style={{ width: '100%', aspectRatio: 1,}} />
         </View>
       )}
       <View className="mt-3 mx-5 ">
