@@ -7,6 +7,8 @@ import * as ImagePicker from "expo-image-picker";
 import {DataStore} from "aws-amplify";
 import {useAuthenticator} from "@aws-amplify/ui-react-native";
 import {User, Post as PostModel} from "../src/models";
+import { Storage } from "@aws-amplify/storage"
+import {uuid} from 'uuidv4';
 
 const NewPost = () => {
   const [text, setText] = useState('');
@@ -27,11 +29,28 @@ const NewPost = () => {
     }
   };
 
+  async function uploadImage() {
+    if(!image) return
+    try {
+      const fileKey = `${uuid()}.png`
+      const response = await fetch(image);
+      const blob = await response.blob();
+      await Storage.put(fileKey, blob, {
+        contentType: 'image/jpeg' // contentType is optional
+      });
+      return fileKey;
+    } catch (err) {
+      console.log('Error uploading file:', err);
+    }
+  }
+
   const handlePost = async () => {
+    const imageKey = await uploadImage()
     await DataStore.save(new PostModel({
       text,
       likes: 0,
       userID: user.attributes.sub,
+      image: imageKey
     }))
     setText('')
     console.log('Post created')

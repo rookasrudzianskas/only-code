@@ -17,7 +17,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     DataStore.query(User, id).then(setUser);
-    DataStore.query(PostModel, (post) => post.userID('eq', id)).then(setPosts)
+    DataStore.query(PostModel, (post) => post.userID.eq(id)).then(setPosts)
   }, [id])
 
 

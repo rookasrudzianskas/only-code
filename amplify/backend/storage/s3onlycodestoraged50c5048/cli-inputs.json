@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3onlycodestoraged50c5048",
+  "bucketName": "onlycode-storage-d50c5048",
+  "policyUUID": "9743fdaa",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
