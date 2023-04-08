@@ -1,7 +1,7 @@
 //@ts-nocheck
 import React, {useEffect, useState} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, ImageBackground, Image, FlatList} from 'react-native';
-import {Link, useRouter, useSearchParams} from "expo-router";
+import {Text, View, TouchableOpacity, FlatList} from 'react-native';
+import {useSearchParams} from "expo-router";
 import UserProfileHeader from "../../components/UserProfileHeader";
 import posts from '../../assets/data/posts';
 import Post from "../../components/Post";
