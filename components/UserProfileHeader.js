@@ -80,7 +80,7 @@ const UserProfileHeader = ({user, isSubscribed, setIsSubscribed}) => {
               <Text className={`${isSubscribed ? 'text-blue-400' : 'text-white'} font-bold `}>{isSubscribed ? 'SUBSCRIBED' : 'SUBSCRIBE'}</Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={0.7}>
-              <Text className={`${isSubscribed ? 'text-blue-400' : 'text-white'} font-bold`}>{user.subscriptionPrice === 0 ? 'FOR FREE' : `$${user.subscriptionPrice} / month`}</Text>
+              <Text className={`${isSubscribed ? 'text-blue-400' : 'text-white'} font-bold`}>{user.subscriptionPrice === 0 ? 'FOR FREE' : `$${user.subscriptionPrice.toFixed(1)} / month`}</Text>
             </TouchableOpacity>
           </View>
         </View>
