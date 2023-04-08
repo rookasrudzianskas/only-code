@@ -17,7 +17,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     DataStore.query(User, id).then(setUser);
-    DataStore.query(PostModel).then(setPosts)
+    DataStore.query(PostModel, (post) => post.userID('eq', id)).then(setPosts)
   }, [id])
 
 
@@ -44,7 +44,7 @@ const ProfilePage = () => {
         )}
         data={posts}
         renderItem={({item}) => (
-          <Post user={user} post={item} />
+          <Post post={item} />
         )}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}

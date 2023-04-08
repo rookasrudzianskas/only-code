@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Image, TouchableOpacity, Text} from "react-native";
 import {Link} from "expo-router";
 import {EvilIcons, Feather, Ionicons, MaterialIcons} from "@expo/vector-icons";
+import {DataStore} from "aws-amplify";
+import {User} from "../src/models";
 
-const Post = ({user, post}) => {
+const Post = ({ post}) => {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    DataStore.query(User, post.userID).then(setUser);
+  }, [])
+
   return (
     <View className="my-3">
       <View className="flex mx-5 flex-row items-center  justify-between my-4 mb-2">
