@@ -14,7 +14,9 @@ const Post = ({ post}) => {
   }, [])
 
   useEffect(() => {
-    Storage.get(post.image).then(setImageUri)
+    if(post.image) {
+      Storage.get(post.image).then(setImageUri)
+    }
   }, [post.image])
 
   return (
