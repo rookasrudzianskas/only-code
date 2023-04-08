@@ -7,15 +7,17 @@ import posts from '../../assets/data/posts';
 import Post from "../../components/Post";
 import {EvilIcons} from "@expo/vector-icons";
 import {DataStore} from "aws-amplify";
-import {User} from "../../src/models";
+import {User, Post as PostModel} from "../../src/models";
 
 const ProfilePage = () => {
   const {id} = useSearchParams();
   const [user, setUser] = useState([])
+  const [posts, setPosts] = useState([])
   const [isSubscribed, setIsSubscribed] = useState(true);
 
   useEffect(() => {
     DataStore.query(User, id).then(setUser);
+    DataStore.query(PostModel).then(setPosts)
   }, [id])
 
 
@@ -42,7 +44,7 @@ const ProfilePage = () => {
         )}
         data={posts}
         renderItem={({item}) => (
-          <Post post={item} />
+          <Post user={user} post={item} />
         )}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}

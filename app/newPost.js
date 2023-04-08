@@ -5,14 +5,13 @@ import {Link} from "expo-router";
 import {EvilIcons, Feather} from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import {DataStore} from "aws-amplify";
-import Post from "../components/Post";
 import {useAuthenticator} from "@aws-amplify/ui-react-native";
+import {User, Post as PostModel} from "../src/models";
 
 const NewPost = () => {
   const [text, setText] = useState('');
   const [image, setImage] = useState(null);
   const { user } = useAuthenticator()
-  console.log(user.attributes.sub)
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -29,11 +28,12 @@ const NewPost = () => {
   };
 
   const handlePost = async () => {
-    await DataStore.save(new Post({
+    await DataStore.save(new PostModel({
       text,
       likes: 0,
       userID: user.attributes.sub,
     }))
+    setText('')
     console.log('Post created')
   }
 
