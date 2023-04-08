@@ -53,6 +53,7 @@ const NewPost = () => {
       image: imageKey
     }))
     setText('')
+    setImage(null)
     console.log('Post created')
   }
 
