@@ -8,7 +8,7 @@ import {DataStore} from "aws-amplify";
 import {useAuthenticator} from "@aws-amplify/ui-react-native";
 import {User, Post as PostModel} from "../src/models";
 import { Storage } from "@aws-amplify/storage"
-import {uuid} from 'uuidv4';
+import uuid from 'react-native-uuid';
 
 const NewPost = () => {
   const [text, setText] = useState('');
@@ -32,7 +32,7 @@ const NewPost = () => {
   async function uploadImage() {
     if(!image) return
     try {
-      const fileKey = `${uuid()}.png`
+      const fileKey = `${uuid.v4()}.png`
       const response = await fetch(image);
       const blob = await response.blob();
       await Storage.put(fileKey, blob, {
