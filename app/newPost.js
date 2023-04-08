@@ -4,10 +4,15 @@ import {Text, View, StyleSheet, TouchableOpacity, TextInput, Image} from 'react-
 import {Link} from "expo-router";
 import {EvilIcons, Feather} from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
+import {DataStore} from "aws-amplify";
+import Post from "../components/Post";
+import {useAuthenticator} from "@aws-amplify/ui-react-native";
 
 const NewPost = () => {
   const [text, setText] = useState('');
   const [image, setImage] = useState(null);
+  const { user } = useAuthenticator()
+  console.log(user.attributes.sub)
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -18,16 +23,18 @@ const NewPost = () => {
       quality: 1,
     });
 
-
-    console.log(result);
-
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
   };
 
-  const handlePost = () => {
-
+  const handlePost = async () => {
+    await DataStore.save(new Post({
+      text,
+      likes: 0,
+      userID: user.attributes.sub,
+    }))
+    console.log('Post created')
   }
 
   return (
@@ -41,7 +48,7 @@ const NewPost = () => {
           </Link>
           <Text className="uppercase font-semibold text-base ml-1">NEW POST</Text>
         </View>
-        <TouchableOpacity onClick={handlePost} className="bg-blue-400 px-6 py-1 flex items-center justify-center rounded-full">
+        <TouchableOpacity onPress={handlePost} className="bg-blue-400 px-6 py-1 flex items-center justify-center rounded-full">
           <Text className="uppercase font-semibold text-base ml-1 text-white">POST</Text>
         </TouchableOpacity>
       </View>
